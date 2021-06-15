@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		188885F2266A4F16002D3AAA /* CommonBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188885F1266A4F16002D3AAA /* CommonBaseTabBarController.m */; };
+		188885F5266A5088002D3AAA /* HomeTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 188885F4266A5088002D3AAA /* HomeTabBarVC.m */; };
+		188885F8266B2CFF002D3AAA /* TestAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 188885F7266B2CFF002D3AAA /* TestAnimation.m */; };
+		188885FB266BB57D002D3AAA /* test2d.m in Sources */ = {isa = PBXBuildFile; fileRef = 188885FA266BB57D002D3AAA /* test2d.m */; };
+		188885FE266CAA0C002D3AAA /* test3d.m in Sources */ = {isa = PBXBuildFile; fileRef = 188885FD266CAA0C002D3AAA /* test3d.m */; };
+		7E4B198C2669F48100035E1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B198B2669F48100035E1F /* AppDelegate.m */; };
+		7E4B198F2669F48100035E1F /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B198E2669F48100035E1F /* SceneDelegate.m */; };
+		7E4B19922669F48100035E1F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B19912669F48100035E1F /* ViewController.m */; };
+		7E4B19952669F48100035E1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B19932669F48100035E1F /* Main.storyboard */; };
+		7E4B19972669F48400035E1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B19962669F48400035E1F /* Assets.xcassets */; };
+		7E4B199A2669F48400035E1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E4B19982669F48400035E1F /* LaunchScreen.storyboard */; };
+		7E4B199D2669F48400035E1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B199C2669F48400035E1F /* main.m */; };
+		7E4B19A52669FE9400035E1F /* PockerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B19A42669FE9400035E1F /* PockerView.m */; };
+		7E4B19A9266A106700035E1F /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B19A8266A106700035E1F /* NavigationController.m */; };
+		7E4B19AD266A256800035E1F /* MyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4B19AC266A256800035E1F /* MyObject.m */; };
+		7E9B1390266DF75000FA3AF5 /* BasicAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E9B138F266DF75000FA3AF5 /* BasicAnimation.m */; };
+		D65948991BD440C6E16460C3 /* libPods-TarotTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2E21CD50E23F6F371AF724 /* libPods-TarotTest.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		184C46B80A7D51E8A0845263 /* Pods-TarotTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TarotTest.debug.xcconfig"; path = "Target Support Files/Pods-TarotTest/Pods-TarotTest.debug.xcconfig"; sourceTree = "<group>"; };
+		188885F0266A4F16002D3AAA /* CommonBaseTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonBaseTabBarController.h; sourceTree = "<group>"; };
+		188885F1266A4F16002D3AAA /* CommonBaseTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonBaseTabBarController.m; sourceTree = "<group>"; };
+		188885F3266A5088002D3AAA /* HomeTabBarVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeTabBarVC.h; sourceTree = "<group>"; };
+		188885F4266A5088002D3AAA /* HomeTabBarVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeTabBarVC.m; sourceTree = "<group>"; };
+		188885F6266B2CFF002D3AAA /* TestAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestAnimation.h; sourceTree = "<group>"; };
+		188885F7266B2CFF002D3AAA /* TestAnimation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAnimation.m; sourceTree = "<group>"; };
+		188885F9266BB57D002D3AAA /* test2d.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test2d.h; sourceTree = "<group>"; };
+		188885FA266BB57D002D3AAA /* test2d.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = test2d.m; sourceTree = "<group>"; };
+		188885FC266CAA0C002D3AAA /* test3d.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test3d.h; sourceTree = "<group>"; };
+		188885FD266CAA0C002D3AAA /* test3d.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = test3d.m; sourceTree = "<group>"; };
+		5F2E21CD50E23F6F371AF724 /* libPods-TarotTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TarotTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E4B19872669F48100035E1F /* TarotTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TarotTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E4B198A2669F48100035E1F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7E4B198B2669F48100035E1F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7E4B198D2669F48100035E1F /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		7E4B198E2669F48100035E1F /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		7E4B19902669F48100035E1F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		7E4B19912669F48100035E1F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7E4B19942669F48100035E1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7E4B19962669F48400035E1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7E4B19992669F48400035E1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7E4B199B2669F48400035E1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E4B199C2669F48400035E1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7E4B19A32669FE9400035E1F /* PockerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PockerView.h; sourceTree = "<group>"; };
+		7E4B19A42669FE9400035E1F /* PockerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PockerView.m; sourceTree = "<group>"; };
+		7E4B19A7266A106700035E1F /* NavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		7E4B19A8266A106700035E1F /* NavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		7E4B19AA266A251200035E1F /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		7E4B19AB266A256800035E1F /* MyObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyObject.h; sourceTree = "<group>"; };
+		7E4B19AC266A256800035E1F /* MyObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyObject.m; sourceTree = "<group>"; };
+		7E4B19AE266A264800035E1F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		7E9B138E266DF75000FA3AF5 /* BasicAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicAnimation.h; sourceTree = "<group>"; };
+		7E9B138F266DF75000FA3AF5 /* BasicAnimation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicAnimation.m; sourceTree = "<group>"; };
+		F33061476A99AB09C2707924 /* Pods-TarotTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TarotTest.release.xcconfig"; path = "Target Support Files/Pods-TarotTest/Pods-TarotTest.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7E4B19842669F48100035E1F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D65948991BD440C6E16460C3 /* libPods-TarotTest.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		656C829DE66ACC5ACE9A0007 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F2E21CD50E23F6F371AF724 /* libPods-TarotTest.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E4B197E2669F48100035E1F = {
+			isa = PBXGroup;
+			children = (
+				7E4B19892669F48100035E1F /* TarotTest */,
+				7E4B19882669F48100035E1F /* Products */,
+				FB2DED2399AC88DA7A76D1A6 /* Pods */,
+				656C829DE66ACC5ACE9A0007 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7E4B19882669F48100035E1F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E4B19872669F48100035E1F /* TarotTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7E4B19892669F48100035E1F /* TarotTest */ = {
+			isa = PBXGroup;
+			children = (
+				7E4B19A6266A103300035E1F /* common */,
+				7E4B198A2669F48100035E1F /* AppDelegate.h */,
+				7E4B198B2669F48100035E1F /* AppDelegate.m */,
+				7E4B198D2669F48100035E1F /* SceneDelegate.h */,
+				7E4B198E2669F48100035E1F /* SceneDelegate.m */,
+				7E4B19902669F48100035E1F /* ViewController.h */,
+				7E4B19912669F48100035E1F /* ViewController.m */,
+				7E4B19932669F48100035E1F /* Main.storyboard */,
+				7E4B19962669F48400035E1F /* Assets.xcassets */,
+				7E4B19982669F48400035E1F /* LaunchScreen.storyboard */,
+				7E4B199B2669F48400035E1F /* Info.plist */,
+				7E4B199C2669F48400035E1F /* main.m */,
+				7E4B19A32669FE9400035E1F /* PockerView.h */,
+				7E4B19A42669FE9400035E1F /* PockerView.m */,
+				7E4B19AA266A251200035E1F /* Common.h */,
+				7E4B19AE266A264800035E1F /* PrefixHeader.pch */,
+				188885F3266A5088002D3AAA /* HomeTabBarVC.h */,
+				188885F4266A5088002D3AAA /* HomeTabBarVC.m */,
+				188885F6266B2CFF002D3AAA /* TestAnimation.h */,
+				188885F7266B2CFF002D3AAA /* TestAnimation.m */,
+				188885F9266BB57D002D3AAA /* test2d.h */,
+				188885FA266BB57D002D3AAA /* test2d.m */,
+				188885FC266CAA0C002D3AAA /* test3d.h */,
+				188885FD266CAA0C002D3AAA /* test3d.m */,
+			);
+			path = TarotTest;
+			sourceTree = "<group>";
+		};
+		7E4B19A6266A103300035E1F /* common */ = {
+			isa = PBXGroup;
+			children = (
+				7E4B19A7266A106700035E1F /* NavigationController.h */,
+				7E4B19A8266A106700035E1F /* NavigationController.m */,
+				7E4B19AB266A256800035E1F /* MyObject.h */,
+				7E4B19AC266A256800035E1F /* MyObject.m */,
+				188885F0266A4F16002D3AAA /* CommonBaseTabBarController.h */,
+				188885F1266A4F16002D3AAA /* CommonBaseTabBarController.m */,
+				7E9B138E266DF75000FA3AF5 /* BasicAnimation.h */,
+				7E9B138F266DF75000FA3AF5 /* BasicAnimation.m */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		FB2DED2399AC88DA7A76D1A6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				184C46B80A7D51E8A0845263 /* Pods-TarotTest.debug.xcconfig */,
+				F33061476A99AB09C2707924 /* Pods-TarotTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7E4B19862669F48100035E1F /* TarotTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E4B19A02669F48400035E1F /* Build configuration list for PBXNativeTarget "TarotTest" */;
+			buildPhases = (
+				10108C98368D05AF7D31F1AB /* [CP] Check Pods Manifest.lock */,
+				7E4B19832669F48100035E1F /* Sources */,
+				7E4B19842669F48100035E1F /* Frameworks */,
+				7E4B19852669F48100035E1F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TarotTest;
+			productName = TarotTest;
+			productReference = 7E4B19872669F48100035E1F /* TarotTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7E4B197F2669F48100035E1F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = motic;
+				TargetAttributes = {
+					7E4B19862669F48100035E1F = {
+						CreatedOnToolsVersion = 11.3;
+					};
+				};
+			};
+			buildConfigurationList = 7E4B19822669F48100035E1F /* Build configuration list for PBXProject "TarotTest" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7E4B197E2669F48100035E1F;
+			productRefGroup = 7E4B19882669F48100035E1F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7E4B19862669F48100035E1F /* TarotTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7E4B19852669F48100035E1F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E4B199A2669F48400035E1F /* LaunchScreen.storyboard in Resources */,
+				7E4B19972669F48400035E1F /* Assets.xcassets in Resources */,
+				7E4B19952669F48100035E1F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		10108C98368D05AF7D31F1AB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TarotTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7E4B19832669F48100035E1F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				188885F2266A4F16002D3AAA /* CommonBaseTabBarController.m in Sources */,
+				188885F5266A5088002D3AAA /* HomeTabBarVC.m in Sources */,
+				7E4B19922669F48100035E1F /* ViewController.m in Sources */,
+				7E9B1390266DF75000FA3AF5 /* BasicAnimation.m in Sources */,
+				188885FB266BB57D002D3AAA /* test2d.m in Sources */,
+				7E4B198C2669F48100035E1F /* AppDelegate.m in Sources */,
+				7E4B19AD266A256800035E1F /* MyObject.m in Sources */,
+				188885FE266CAA0C002D3AAA /* test3d.m in Sources */,
+				7E4B19A52669FE9400035E1F /* PockerView.m in Sources */,
+				188885F8266B2CFF002D3AAA /* TestAnimation.m in Sources */,
+				7E4B19A9266A106700035E1F /* NavigationController.m in Sources */,
+				7E4B199D2669F48400035E1F /* main.m in Sources */,
+				7E4B198F2669F48100035E1F /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7E4B19932669F48100035E1F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E4B19942669F48100035E1F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7E4B19982669F48400035E1F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7E4B19992669F48400035E1F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7E4B199E2669F48400035E1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7E4B199F2669F48400035E1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7E4B19A12669F48400035E1F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 184C46B80A7D51E8A0845263 /* Pods-TarotTest.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QFVTQNB35J;
+				GCC_PREFIX_HEADER = TarotTest/PrefixHeader.pch;
+				INFOPLIST_FILE = TarotTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.motic-et.TarotTest";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7E4B19A22669F48400035E1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F33061476A99AB09C2707924 /* Pods-TarotTest.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QFVTQNB35J;
+				GCC_PREFIX_HEADER = TarotTest/PrefixHeader.pch;
+				INFOPLIST_FILE = TarotTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.motic-et.TarotTest";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7E4B19822669F48100035E1F /* Build configuration list for PBXProject "TarotTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E4B199E2669F48400035E1F /* Debug */,
+				7E4B199F2669F48400035E1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7E4B19A02669F48400035E1F /* Build configuration list for PBXNativeTarget "TarotTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E4B19A12669F48400035E1F /* Debug */,
+				7E4B19A22669F48400035E1F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7E4B197F2669F48100035E1F /* Project object */;
+}
