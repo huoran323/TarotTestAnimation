@@ -56,8 +56,7 @@
     transDefault = CATransform3DRotate(transDefault, M_PI / 3, 0, 0, 0);
     self.myView.layer.transform = transDefault;
     
-    
-    for (int i=0; i<20; i++) {
+    for (int i=0; i<30; i++) {
         UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"1.jpeg"]];
         [self.myView addSubview:imgV];
         [imgV mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -188,7 +187,7 @@
     transDefault = CATransform3DRotate(transDefault, M_PI / 3, 1, 0, 0);
     self.myView.layer.transform = transDefault;
     
-    for (int i=0; i<20; i++) {
+    for (int i=0; i<30; i++) {
         UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"1.jpeg"]];
         [self.myView addSubview:imgV];
         [imgV mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -256,6 +255,17 @@
         [view removeFromSuperview];
     }
     
+    // 背景回正
+//   CATransform3D transDefault = CATransform3DIdentity;
+//   transDefault.m34 = - 1.0 / 500;
+//   transDefault = CATransform3DRotate(transDefault, M_PI / 3, 0, 0, 0);
+//   self.myView.layer.transform = transDefault;
+    
+    CATransform3D transDefault = CATransform3DIdentity;
+    transDefault.m34 = - 1.0 / 500;
+    transDefault = CATransform3DRotate(transDefault, M_PI / 3, 1, 0, 0);
+    self.myView.layer.transform = transDefault;
+    
     // 生成20个数中不同的三个随机数
     NSMutableArray *valueArr = [NSMutableArray array];
     int countN = 3;
@@ -287,29 +297,72 @@
             make.top.equalTo(self.myView).offset(300);
             make.size.mas_equalTo(CGSizeMake(100, 150));
         }];
-        
-        CATransform3D transDefault = CATransform3DIdentity;
-        transDefault.m34 = - 1.0 / 500;
-        transDefault = CATransform3DRotate(transDefault, M_PI / 3, 1, 0, 0);
-
-        CATransform3D trans = CATransform3DIdentity;
-        trans.m34 = 1/500.0;
-        trans = CATransform3DRotate(transDefault, 1.3, 0, 1, 0);
-//        imgV.layer.transform = trans;
-        CATransform3D transxy = CATransform3DIdentity;
-        transxy.m34 = 1/500.0;
-        transxy = CATransform3DRotate(trans, M_PI/3, 1, 1, 0);
-        
 //
-        CABasicAnimation *transformZ = [CABasicAnimation animationWithKeyPath:@"transform"];
-        transformZ.toValue = [NSValue valueWithCATransform3D:transDefault];
-        transformZ.duration = 0.5f;
-        // 结束在终了位置
-        transformZ.fillMode = kCAFillModeForwards;
-        // 动画终了后不返回初始状态
-        transformZ.removedOnCompletion = NO;
-        transformZ.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-        [imgV.layer addAnimation:transformZ forKey:@"transformZ"];
+//        CATransform3D transDefault = CATransform3DIdentity;
+//        transDefault.m34 = - 1.0 / 500;
+//        transDefault = CATransform3DRotate(transDefault, M_PI / 3, 1, 0, 0);
+//        imgV.layer.transform = transDefault;
+        
+        CATransform3D po = CATransform3DMakeTranslation(0,0,1);
+        po.m43 = -1 / 500;
+        po = CATransform3DTranslate(po, 0, 0, 1);
+        imgV.layer.transform = po;
+        
+        return;
+        // 第一步： 先抬高
+        POPBasicAnimation *moveY = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerTranslationZ];
+        moveY.fromValue = @(0);
+        moveY.toValue = @(100000);
+        moveY.duration = 0.5f;
+        [imgV.layer pop_addAnimation:moveY forKey:@"moveY"];
+        
+        
+        
+        // 第二步： 向右移动
+        POPBasicAnimation *moveR = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionX];
+        moveR.toValue = @(self.myView.center.x + 100);
+        moveR.duration = 0.5f;
+        moveR.beginTime = CACurrentMediaTime() + 0.5f;
+        [imgV.layer pop_addAnimation:moveR forKey:@"moveR"];
+        
+        // 第一张牌 掉落
+        if (i == 0) {
+            POPBasicAnimation *moveYDown1 = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionY];
+            moveYDown1.toValue = @(self.myView.center.y);
+            moveYDown1.duration = 0.5f;
+            moveYDown1.beginTime = CACurrentMediaTime() + 1.0f;
+            [imgV.layer pop_addAnimation:moveYDown1 forKey:@"moveYDown1"];
+        } else {
+            
+            // 向左移动
+            POPBasicAnimation *moveCenter = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionX];
+            moveCenter.toValue = @(self.myView.center.x);
+            moveCenter.duration = 0.5f;
+            moveCenter.beginTime = CACurrentMediaTime() + 1.5f;
+            [imgV.layer pop_addAnimation:moveCenter forKey:@"moveCenter"];
+            
+            if (i==1) {
+                POPBasicAnimation *moveYDown2 = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionY];
+                moveYDown2.toValue = @(self.myView.center.y);
+                moveYDown2.duration = 0.5f;
+                moveYDown2.beginTime = CACurrentMediaTime() + 2.0f;
+                [imgV.layer pop_addAnimation:moveYDown2 forKey:@"moveYDown2"];
+            }
+            
+            
+        }
+        
+        
+
+//        CABasicAnimation *transformZ = [CABasicAnimation animationWithKeyPath:@"transform"];
+//        transformZ.toValue = [NSValue valueWithCATransform3D:transDefault];
+//        transformZ.duration = 0.5f;
+//        // 结束在终了位置
+//        transformZ.fillMode = kCAFillModeForwards;
+//        // 动画终了后不返回初始状态
+//        transformZ.removedOnCompletion = NO;
+//        transformZ.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+//        [imgV.layer addAnimation:transformZ forKey:@"transformZ"];
     }
 }
 // 发牌
