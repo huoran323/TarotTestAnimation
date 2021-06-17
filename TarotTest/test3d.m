@@ -256,39 +256,18 @@
     }
     
     // 背景回正
-   CATransform3D transDefault = CATransform3DIdentity;
-   transDefault.m34 = - 1.0 / 500;
-   transDefault = CATransform3DRotate(transDefault, M_PI / 3, 0, 0, 0);
-   self.myView.layer.transform = transDefault;
+//   CATransform3D transDefault = CATransform3DIdentity;
+//   transDefault.m34 = - 1.0 / 500;
+//   transDefault = CATransform3DRotate(transDefault, M_PI / 3, 0, 0, 0);
+//   self.myView.layer.transform = transDefault;
     
     // 背景倾斜
-//    CATransform3D transDefault = CATransform3DIdentity;
-//    transDefault.m34 = - 1.0 / 500;
-//    transDefault = CATransform3DRotate(transDefault, M_PI / 3, 1, 0, 0);
-//    self.myView.layer.transform = transDefault;
+    CATransform3D transDefault = CATransform3DIdentity;
+    transDefault.m34 = - 1.0 / 500;
+    transDefault = CATransform3DRotate(transDefault, M_PI / 3, 1, 0, 0);
+    self.myView.layer.transform = transDefault;
+    self.myView.backgroundColor = [UIColor grayColor];
     
-    // 生成20个数中不同的三个随机数
-    NSMutableArray *valueArr = [NSMutableArray array];
-    int countN = 3;
-    for (int i=0; i<countN; i++) {
-        int value = arc4random() % 20;
-        for (int j=0; j<valueArr.count; j++) {
-            NSString *s = valueArr[j];
-            while ([s intValue] == value) {
-                value = arc4random() % 20;
-                j=-1;
-            }
-        }
-        [valueArr addObject:[NSString stringWithFormat:@"%d", value]];
-    }
-    
-    
-    
-    // 取出三个值
-    int k = [valueArr[0] intValue];
-    int v = [valueArr[1] intValue];
-    int u = [valueArr[2] intValue];
-    NSLog(@"随机数 %d %d %d", k, v, u);
     
     for (int i=0; i<3; i++) {
         UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"1.jpeg"]];
@@ -298,11 +277,39 @@
             make.top.equalTo(self.myView).offset(300);
             make.size.mas_equalTo(CGSizeMake(100, 150));
         }];
+        
+//        CATransform3D transDefault = CATransform3DIdentity;
+//        transDefault.m34 = - 1.0 / 500;
+//        transDefault = CATransform3DRotate(transDefault, M_PI / 3, 1, 0, 0);
+//        imgV.layer.transform = transDefault;
+        
+        
+        // 第一步： 抬高
+        CATransform3D TA = CATransform3DIdentity;
+        TA.m34 = - 1.0 / 500;
+        TA = CATransform3DRotate(TA, M_PI / 3, 1, 0, 0);
+        CABasicAnimation *transformA = [CABasicAnimation animationWithKeyPath:@"transform"];
+        transformA.toValue = [NSValue valueWithCATransform3D:TA];
+        [imgV.layer addAnimation:transformA forKey:@"transformA"];
+        
+        CABasicAnimation *moveA = [CABasicAnimation animationWithKeyPath:@"position.y"];
+        moveA.fromValue = @(self.myView.center.y);
+        moveA.toValue = @(self.myView.center.y-50);
+        
+        CAAnimationGroup *groupA = [CAAnimationGroup animation];
+        groupA.duration = 0.5f;
+        groupA.fillMode = kCAFillModeForwards;
+        groupA.removedOnCompletion = NO;
+        groupA.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+        groupA.animations = @[moveA];
+        [imgV.layer addAnimation:groupA forKey:@"groupA"];
+        
+        return;
 
-        CATransform3D transDefault = CATransform3DIdentity;
-        transDefault.m34 = - 1.0 / 500;
-        transDefault = CATransform3DRotate(transDefault, M_PI / 3, 1, 0, 0);
-        imgV.layer.transform = transDefault;
+//        CATransform3D transDefault = CATransform3DIdentity;
+//        transDefault.m34 = - 1.0 / 500;
+//        transDefault = CATransform3DRotate(transDefault, M_PI / 3, 1, 0, 0);
+//        imgV.layer.transform = transDefault;
         
 //        CATransform3D po = CATransform3DMakeTranslation(0,0,1);
 //        po.m43 = -1 / 500;
@@ -322,7 +329,7 @@
         
         CABasicAnimation *moveZ = [CABasicAnimation animationWithKeyPath:@"position.y"];
         moveZ.fromValue = @(self.myView.center.y);
-        moveZ.toValue = @(self.myView.center.y-100);
+        moveZ.toValue = @(self.myView.center.y-50);
         moveZ.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
         
         CAAnimationGroup *animaGroupZ = [CAAnimationGroup animation];
@@ -339,11 +346,13 @@
         moveR1.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
         
         CATransform3D transA1 = CATransform3DIdentity;
-        transA1.m34 = - 1.0 / 500;
+        transA1.m34 = - 1.0 / 300;
         transA1 = CATransform3DRotate(transA1, M_PI / 3, 1, 0, 0);
-//        CATransform3D transx = CATransform3DIdentity;
-//        transx.m34 = 1.0 / 500;
-        CATransform3D transx = CATransform3DRotate(transA1,-M_PI/17, 0, 0, 1);
+//        CATransform3D transx = CATransform3DRotate(transA1,-M_PI/17, 0, 0, 1);
+        CATransform3D transB = CATransform3DIdentity;
+        transB.m34 = - 1.0 / 500;
+        transB = CATransform3DRotate(transA1, M_PI / 30, 1, 0, 0);
+        CATransform3D transx = CATransform3DRotate(transB,-M_PI/17, 0, 0, 1);
         CABasicAnimation *transformX = [CABasicAnimation animationWithKeyPath:@"transform"];
         transformX.toValue = [NSValue valueWithCATransform3D:transx];
         
@@ -355,6 +364,8 @@
         animaGroupX.animations = @[moveR1,transformX];
         [imgV.layer addAnimation:animaGroupX forKey:@"animaGroupX"];
         
+        return;
+        
         if (i == 0) {
             
             CABasicAnimation *moveZ1 = [CABasicAnimation animationWithKeyPath:@"position.y"];
@@ -363,7 +374,7 @@
             moveZ1.removedOnCompletion = NO;
             moveZ1.duration = 0.5f;
             moveZ1.toValue = @(self.myView.center.y);
-            moveZ1.fromValue = @(self.myView.center.y-100);
+            moveZ1.fromValue = @(self.myView.center.y-50);
             moveZ1.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
             [imgV.layer addAnimation:moveZ1 forKey:@"moveZ1"];
         } else {
@@ -398,7 +409,7 @@
                 moveZ2.removedOnCompletion = NO;
                 moveZ2.duration = 0.5f;
                 moveZ2.toValue = @(self.myView.center.y);
-                moveZ2.fromValue = @(self.myView.center.y-100);
+                moveZ2.fromValue = @(self.myView.center.y-50);
                 moveZ2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
                 [imgV.layer addAnimation:moveZ2 forKey:@"moveZ2"];
                 
@@ -414,7 +425,7 @@
                 transD = CATransform3DRotate(transD, M_PI / 3, 1, 0, 0);
                 CATransform3D transD1 = CATransform3DIdentity;
                 transD1.m34 = 1.0 / 500;
-                transD1 = CATransform3DRotate(transC,M_PI/19, 0, 0, 1);
+                transD1 = CATransform3DRotate(transC,M_PI/17, 0, 0, 1);
                 CABasicAnimation *transformD = [CABasicAnimation animationWithKeyPath:@"transform"];
                 transformD.toValue = [NSValue valueWithCATransform3D:transD1];
                 
@@ -432,7 +443,7 @@
                 moveZ3.removedOnCompletion = NO;
                 moveZ3.duration = 0.5f;
                 moveZ3.toValue = @(self.myView.center.y);
-                moveZ3.fromValue = @(self.myView.center.y-100);
+                moveZ3.fromValue = @(self.myView.center.y-50);
                 moveZ3.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
                 [imgV.layer addAnimation:moveZ3 forKey:@"moveZ3"];
             }
@@ -505,6 +516,28 @@
 }
 // 发牌
 - (IBAction)fapaiClick:(id)sender {
+    // 生成20个数中不同的三个随机数
+    NSMutableArray *valueArr = [NSMutableArray array];
+    int countN = 3;
+    for (int i=0; i<countN; i++) {
+        int value = arc4random() % 20;
+        for (int j=0; j<valueArr.count; j++) {
+            NSString *s = valueArr[j];
+            while ([s intValue] == value) {
+                value = arc4random() % 20;
+                j=-1;
+            }
+        }
+        [valueArr addObject:[NSString stringWithFormat:@"%d", value]];
+    }
+    
+    
+    
+    // 取出三个值
+    int k = [valueArr[0] intValue];
+    int v = [valueArr[1] intValue];
+    int u = [valueArr[2] intValue];
+    NSLog(@"随机数 %d %d %d", k, v, u);
 }
 - (IBAction)testAction:(id)sender {
     
