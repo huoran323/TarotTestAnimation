@@ -256,15 +256,16 @@
     }
     
     // 背景回正
-//   CATransform3D transDefault = CATransform3DIdentity;
-//   transDefault.m34 = - 1.0 / 500;
-//   transDefault = CATransform3DRotate(transDefault, M_PI / 3, 0, 0, 0);
-//   self.myView.layer.transform = transDefault;
+   CATransform3D transDefault = CATransform3DIdentity;
+   transDefault.m34 = - 1.0 / 500;
+   transDefault = CATransform3DRotate(transDefault, M_PI / 3, 0, 0, 0);
+   self.myView.layer.transform = transDefault;
     
-    CATransform3D transDefault = CATransform3DIdentity;
-    transDefault.m34 = - 1.0 / 500;
-    transDefault = CATransform3DRotate(transDefault, M_PI / 3, 1, 0, 0);
-    self.myView.layer.transform = transDefault;
+    // 背景倾斜
+//    CATransform3D transDefault = CATransform3DIdentity;
+//    transDefault.m34 = - 1.0 / 500;
+//    transDefault = CATransform3DRotate(transDefault, M_PI / 3, 1, 0, 0);
+//    self.myView.layer.transform = transDefault;
     
     // 生成20个数中不同的三个随机数
     NSMutableArray *valueArr = [NSMutableArray array];
@@ -297,60 +298,197 @@
             make.top.equalTo(self.myView).offset(300);
             make.size.mas_equalTo(CGSizeMake(100, 150));
         }];
-//
-//        CATransform3D transDefault = CATransform3DIdentity;
-//        transDefault.m34 = - 1.0 / 500;
-//        transDefault = CATransform3DRotate(transDefault, M_PI / 3, 1, 0, 0);
-//        imgV.layer.transform = transDefault;
+
+        CATransform3D transDefault = CATransform3DIdentity;
+        transDefault.m34 = - 1.0 / 500;
+        transDefault = CATransform3DRotate(transDefault, M_PI / 3, 1, 0, 0);
+        imgV.layer.transform = transDefault;
         
-        CATransform3D po = CATransform3DMakeTranslation(0,0,1);
-        po.m43 = -1 / 500;
-        po = CATransform3DTranslate(po, 0, 0, 1);
-        imgV.layer.transform = po;
+//        CATransform3D po = CATransform3DMakeTranslation(0,0,1);
+//        po.m43 = -1 / 500;
+//        po = CATransform3DTranslate(po, 0, 0, 1);
+//        imgV.layer.transform = po;
         
-        return;
-        // 第一步： 先抬高
-        POPBasicAnimation *moveY = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerTranslationZ];
-        moveY.fromValue = @(0);
-        moveY.toValue = @(100000);
-        moveY.duration = 0.5f;
-        [imgV.layer pop_addAnimation:moveY forKey:@"moveY"];
+        // 第一步： 抬高
+        CATransform3D transA = CATransform3DIdentity;
+        transA.m34 = - 1.0 / 500;
+        transA = CATransform3DRotate(transA, M_PI / 3, 1, 0, 0);
+        CABasicAnimation *transformZ = [CABasicAnimation animationWithKeyPath:@"transform"];
+        transformZ.toValue = [NSValue valueWithCATransform3D:transA];
+        transformZ.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+//        transformZ.fillMode = kCAFillModeForwards;
+//        transformZ.removedOnCompletion = NO;
+//        transformZ.duration = 0.5f;
         
+        CABasicAnimation *moveZ = [CABasicAnimation animationWithKeyPath:@"position.y"];
+        moveZ.fromValue = @(self.myView.center.y);
+        moveZ.toValue = @(self.myView.center.y-100);
+        moveZ.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
         
+        CAAnimationGroup *animaGroupZ = [CAAnimationGroup animation];
+        animaGroupZ.duration = 0.5f;
+        animaGroupZ.fillMode = kCAFillModeForwards;
+        animaGroupZ.removedOnCompletion = NO;
+        animaGroupZ.animations = @[moveZ,transformZ];
+        [imgV.layer addAnimation:animaGroupZ forKey:@"animaGroupZ"];
         
-        // 第二步： 向右移动
-        POPBasicAnimation *moveR = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionX];
-        moveR.toValue = @(self.myView.center.x + 100);
-        moveR.duration = 0.5f;
-        moveR.beginTime = CACurrentMediaTime() + 0.5f;
-        [imgV.layer pop_addAnimation:moveR forKey:@"moveR"];
+        // 第二步： 向右移动 + 旋转角度
+        CABasicAnimation *moveR1 = [CABasicAnimation animationWithKeyPath:@"position.x"];
+        moveR1.fromValue = @(self.myView.center.x);
+        moveR1.toValue = @(self.myView.center.x+120);
+        moveR1.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
         
-        // 第一张牌 掉落
+        CATransform3D transA1 = CATransform3DIdentity;
+        transA1.m34 = - 1.0 / 500;
+        transA1 = CATransform3DRotate(transA1, M_PI / 3, 1, 0, 0);
+//        CATransform3D transx = CATransform3DIdentity;
+//        transx.m34 = 1.0 / 500;
+        CATransform3D transx = CATransform3DRotate(transA1,-M_PI/17, 0, 0, 1);
+        CABasicAnimation *transformX = [CABasicAnimation animationWithKeyPath:@"transform"];
+        transformX.toValue = [NSValue valueWithCATransform3D:transx];
+        
+        CAAnimationGroup *animaGroupX = [CAAnimationGroup animation];
+        animaGroupX.beginTime= CACurrentMediaTime() + 0.5f;
+        animaGroupX.duration = 0.5f;
+        animaGroupX.fillMode = kCAFillModeForwards;
+        animaGroupX.removedOnCompletion = NO;
+        animaGroupX.animations = @[moveR1,transformX];
+        [imgV.layer addAnimation:animaGroupX forKey:@"animaGroupX"];
+        
         if (i == 0) {
-            POPBasicAnimation *moveYDown1 = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionY];
-            moveYDown1.toValue = @(self.myView.center.y);
-            moveYDown1.duration = 0.5f;
-            moveYDown1.beginTime = CACurrentMediaTime() + 1.0f;
-            [imgV.layer pop_addAnimation:moveYDown1 forKey:@"moveYDown1"];
+            
+            CABasicAnimation *moveZ1 = [CABasicAnimation animationWithKeyPath:@"position.y"];
+            moveZ1.beginTime = CACurrentMediaTime() + 1.0f;
+            moveZ1.fillMode = kCAFillModeForwards;
+            moveZ1.removedOnCompletion = NO;
+            moveZ1.duration = 0.5f;
+            moveZ1.toValue = @(self.myView.center.y);
+            moveZ1.fromValue = @(self.myView.center.y-100);
+            moveZ1.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+            [imgV.layer addAnimation:moveZ1 forKey:@"moveZ1"];
         } else {
             
-            // 向左移动
-            POPBasicAnimation *moveCenter = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionX];
-            moveCenter.toValue = @(self.myView.center.x);
-            moveCenter.duration = 0.5f;
-            moveCenter.beginTime = CACurrentMediaTime() + 1.5f;
-            [imgV.layer pop_addAnimation:moveCenter forKey:@"moveCenter"];
+            CABasicAnimation *moveC = [CABasicAnimation animationWithKeyPath:@"position.x"];
+            moveC.toValue = @(self.myView.center.x);
+            moveC.fromValue = @(self.myView.center.x+120);
+            moveC.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
             
-            if (i==1) {
-                POPBasicAnimation *moveYDown2 = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionY];
-                moveYDown2.toValue = @(self.myView.center.y);
-                moveYDown2.duration = 0.5f;
-                moveYDown2.beginTime = CACurrentMediaTime() + 2.0f;
-                [imgV.layer pop_addAnimation:moveYDown2 forKey:@"moveYDown2"];
+            CATransform3D transC = CATransform3DIdentity;
+            transC.m34 = - 1.0 / 500;
+            transC = CATransform3DRotate(transC, M_PI / 3, 1, 0, 0);
+            CATransform3D transC1 = CATransform3DIdentity;
+            transC1.m34 = 1.0 / 500;
+            transC1 = CATransform3DRotate(transC,0, 0, 0, 1);
+            CABasicAnimation *transformC = [CABasicAnimation animationWithKeyPath:@"transform"];
+            transformC.toValue = [NSValue valueWithCATransform3D:transC1];
+            
+            CAAnimationGroup *animaGroupC = [CAAnimationGroup animation];
+            animaGroupC.beginTime= CACurrentMediaTime() + 1.5f;
+            animaGroupC.duration = 0.5f;
+            animaGroupC.fillMode = kCAFillModeForwards;
+            animaGroupC.removedOnCompletion = NO;
+            animaGroupC.animations = @[moveC,transformC];
+            [imgV.layer addAnimation:animaGroupC forKey:@"animaGroupC"];
+            
+            if (i == 1) {
+                
+                CABasicAnimation *moveZ2 = [CABasicAnimation animationWithKeyPath:@"position.y"];
+                moveZ2.beginTime = CACurrentMediaTime() + 2.0f;
+                moveZ2.fillMode = kCAFillModeForwards;
+                moveZ2.removedOnCompletion = NO;
+                moveZ2.duration = 0.5f;
+                moveZ2.toValue = @(self.myView.center.y);
+                moveZ2.fromValue = @(self.myView.center.y-100);
+                moveZ2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+                [imgV.layer addAnimation:moveZ2 forKey:@"moveZ2"];
+                
+            } else {
+                // 继续向左移动
+                CABasicAnimation *moveD = [CABasicAnimation animationWithKeyPath:@"position.x"];
+                moveD.fromValue = @(self.myView.center.x);
+                moveD.toValue = @(self.myView.center.x-120);
+                moveD.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+                
+                CATransform3D transD = CATransform3DIdentity;
+                transD.m34 = - 1.0 / 500;
+                transD = CATransform3DRotate(transD, M_PI / 3, 1, 0, 0);
+                CATransform3D transD1 = CATransform3DIdentity;
+                transD1.m34 = 1.0 / 500;
+                transD1 = CATransform3DRotate(transC,M_PI/19, 0, 0, 1);
+                CABasicAnimation *transformD = [CABasicAnimation animationWithKeyPath:@"transform"];
+                transformD.toValue = [NSValue valueWithCATransform3D:transD1];
+                
+                CAAnimationGroup *animaGroupD = [CAAnimationGroup animation];
+                animaGroupD.beginTime= CACurrentMediaTime() + 2.5f;
+                animaGroupD.duration = 0.5f;
+                animaGroupD.fillMode = kCAFillModeForwards;
+                animaGroupD.removedOnCompletion = NO;
+                animaGroupD.animations = @[moveD,transformD];
+                [imgV.layer addAnimation:animaGroupD forKey:@"animaGroupD"];
+                
+                CABasicAnimation *moveZ3 = [CABasicAnimation animationWithKeyPath:@"position.y"];
+                moveZ3.beginTime = CACurrentMediaTime() + 3.0f;
+                moveZ3.fillMode = kCAFillModeForwards;
+                moveZ3.removedOnCompletion = NO;
+                moveZ3.duration = 0.5f;
+                moveZ3.toValue = @(self.myView.center.y);
+                moveZ3.fromValue = @(self.myView.center.y-100);
+                moveZ3.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+                [imgV.layer addAnimation:moveZ3 forKey:@"moveZ3"];
             }
-            
-            
         }
+//        // 第一步： 先抬高
+//        POPBasicAnimation *moveY = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionY];
+//        moveY.toValue = @(self.myView.center.y-100);
+//        moveY.duration = 0.5f;
+//        [imgV.layer pop_addAnimation:moveY forKey:@"moveY"];
+//
+//        // 第二步： 向右移动
+//        POPBasicAnimation *moveR = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionX];
+//        moveR.toValue = @(self.myView.center.x + 100);
+//        moveR.duration = 0.5f;
+//        moveR.beginTime = CACurrentMediaTime() + 0.5f;
+//        [imgV.layer pop_addAnimation:moveR forKey:@"moveR"];
+//
+//        // 第一张牌 掉落
+//        if (i == 0) {
+//            POPBasicAnimation *moveYDown1 = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionY];
+//            moveYDown1.toValue = @(self.myView.center.y);
+//            moveYDown1.duration = 0.5f;
+//            moveYDown1.beginTime = CACurrentMediaTime() + 1.0f;
+//            [imgV.layer pop_addAnimation:moveYDown1 forKey:@"moveYDown1"];
+//
+////            CATransform3D down1Rotate = CATransform3DIdentity;
+////            down1Rotate.m34 = 1 / 500;
+////            down1Rotate = CATransform3DRotate(down1Rotate, M_PI/3, 0, 0, 1);
+////            imgV.layer.transform = down1Rotate;
+//
+////            POPBasicAnimation *cardRotate = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerRotation];
+////            cardRotate.beginTime = CACurrentMediaTime() + 1.0f;
+////            cardRotate.fromValue = 0;
+////            cardRotate.toValue = @(M_PI / 3);
+////            cardRotate.duration = 0.5;
+////            [imgV.layer pop_addAnimation:cardRotate forKey:@"cardRotation"];
+//
+//        } else {
+//
+//            // 向左移动
+//            POPBasicAnimation *moveCenter = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionX];
+//            moveCenter.toValue = @(self.myView.center.x);
+//            moveCenter.duration = 0.5f;
+//            moveCenter.beginTime = CACurrentMediaTime() + 1.5f;
+//            [imgV.layer pop_addAnimation:moveCenter forKey:@"moveCenter"];
+//
+//            if (i==1) {
+//                POPBasicAnimation *moveYDown2 = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionY];
+//                moveYDown2.toValue = @(self.myView.center.y);
+//                moveYDown2.duration = 0.5f;
+//                moveYDown2.beginTime = CACurrentMediaTime() + 2.0f;
+//                [imgV.layer pop_addAnimation:moveYDown2 forKey:@"moveYDown2"];
+//            }
+//
+//
+//        }
         
         
 
