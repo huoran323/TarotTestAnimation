@@ -283,6 +283,16 @@
 //        transDefault = CATransform3DRotate(transDefault, M_PI / 3, 1, 0, 0);
 //        imgV.layer.transform = transDefault;
         
+//        POPBasicAnimation *p1 = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerTranslationZ];
+//        p1.toValue = @(100);
+//        p1.duration = 1.5f;
+//        [imgV.layer pop_addAnimation:p1 forKey:@"p1"];
+        
+//        POPBasicAnimation *p2 = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerTranslationY];
+//        p2.toValue = @(-100);
+//        p2.duration = 1.5f;
+//        [imgV.layer pop_addAnimation:p2 forKey:@"p2"];
+//
         
         // 第一步： 抬高
         CATransform3D TA = CATransform3DIdentity;
@@ -290,18 +300,21 @@
         TA = CATransform3DRotate(TA, M_PI / 3, 1, 0, 0);
         CABasicAnimation *transformA = [CABasicAnimation animationWithKeyPath:@"transform"];
         transformA.toValue = [NSValue valueWithCATransform3D:TA];
-        [imgV.layer addAnimation:transformA forKey:@"transformA"];
         
-        CABasicAnimation *moveA = [CABasicAnimation animationWithKeyPath:@"position.y"];
+        CABasicAnimation *moveA = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
         moveA.fromValue = @(self.myView.center.y);
-        moveA.toValue = @(self.myView.center.y-50);
+        moveA.toValue = @(self.myView.center.y-150);
+        
+        CABasicAnimation *moveB = [CABasicAnimation animationWithKeyPath:@"transform.translation.y"];
+        moveB.fromValue = @(0);
+        moveB.toValue = @(200);
         
         CAAnimationGroup *groupA = [CAAnimationGroup animation];
         groupA.duration = 0.5f;
         groupA.fillMode = kCAFillModeForwards;
         groupA.removedOnCompletion = NO;
         groupA.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-        groupA.animations = @[moveA];
+        groupA.animations = @[moveA,moveB, transformA];
         [imgV.layer addAnimation:groupA forKey:@"groupA"];
         
         return;
